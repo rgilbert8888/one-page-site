@@ -26,9 +26,12 @@ $(document).on('ready', function(){
 
 	});
 
-	var hideMenu = function(){
-		$('nav ul').hide();
-	}
+//hide menu items after you click on an item to scroll to - ONLY WANT THIS IN MOBILE
+	// var hideMenu = function(){
+	// 	if
+	// 	$('nav ul').hide();
+	// }
+
 //scrollTo.min.js plugin - get from github and save in a separate file
 //attach to click event in the nav bar - outside of the window onscroll above
 	$('.js-page-home').on('click', function(e){
@@ -38,26 +41,26 @@ $(document).on('ready', function(){
 	});
 	$('.js-page-about').on('click', function(e){
 		e.preventDefault();
-		hideMenu();
+		
 		$.scrollTo('.page-about', 2000);
 		
 	});
 
 	$('.js-page-products').on('click', function(e){
 		e.preventDefault();
-		hideMenu();
+	
 		$.scrollTo('.page-products', 2000, {offset: { top: -$('.nav-wrapper').height() }});
 	});
 
 	$('.js-page-news').on('click', function(e){
 		e.preventDefault();
-		hideMenu();
+		
 		$.scrollTo('.page-news', 2000, {offset: { top: -$('.nav-wrapper').height() }});
 	});
 
 	$('.js-page-contact').on('click', function(e){
 		e.preventDefault();
-		hideMenu();
+		
 		$.scrollTo('.page-contact', 2000, {offset: { top: -$('.nav-wrapper').height() }});
 	});
 
@@ -76,6 +79,11 @@ $(document).on('ready', function(){
 		// if(w < 420 && ourNav.is(':hidden')){
 		// 	ourNav.removeAttr('style');
 		// }
+		if (w < 420) {
+		$('nav li').on('click', function(){
+				$('nav ul').hide();
+			})
+		};
 
 	});
 
