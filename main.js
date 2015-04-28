@@ -18,21 +18,6 @@ $(document).on('ready', function(){
 		}
 	});
 
-
-	
-	$('.hamburger-menu').on('click', function(){
-		// $('.js-page-home img').toggleClass('mobile-logo');
-		$('nav ul').toggle();
-
-	});
-
-//hide menu items after you click on an item to scroll to - ONLY WANT THIS IN MOBILE
-	// var hideMenu = function(){
-	// 	if
-	// 	$('nav ul').hide();
-	// }
-
-//scrollTo.min.js plugin - get from github and save in a separate file
 //attach to click event in the nav bar - outside of the window onscroll above
 	$('.js-page-home').on('click', function(e){
 		e.preventDefault();
@@ -46,48 +31,43 @@ $(document).on('ready', function(){
 		
 	});
 
-	$('.js-page-products').on('click', function(e){
+	$('nav a').on('click',function(e){
 		e.preventDefault();
-	
-		$.scrollTo('.page-products', 2000, {offset: { top: -$('.nav-wrapper').height() }});
+		var target = $(this).data('target');
+		$.scrollTo(target, 2000, {
+			offset: { 
+				top: -$('.nav-wrapper').height() 
+			},
+			onAfter: function() {
+				var w = $(window).width();
+				if (w < 560) {
+					$('nav ul').hide();
+				}
+			}
+		});
 	});
-
-	$('.js-page-news').on('click', function(e){
-		e.preventDefault();
-		
-		$.scrollTo('.page-news', 2000, {offset: { top: -$('.nav-wrapper').height() }});
-	});
-
-	$('.js-page-contact').on('click', function(e){
-		e.preventDefault();
-		
-		$.scrollTo('.page-contact', 2000, {offset: { top: -$('.nav-wrapper').height() }});
-	});
-
-
-	// breakpoint
 
 	$(window).on('resize', function(){
+
 		var w = $(window).width();
-		// var ourNav = $('nav ul'); //can also save in variable to save time
+		var nav = $('nav ul');
 
-		if(w < 420 && $('nav ul').is(':hidden')){
-			$('nav ul').removeAttr('style');
-		};
-
-		// or 
-		// if(w < 420 && ourNav.is(':hidden')){
-		// 	ourNav.removeAttr('style');
-		// }
-		if (w < 420) {
-		$('nav li').on('click', function(){
-				$('nav ul').hide();
-			})
-		};
-
+		if(w > 560 && nav.is(':hidden')){
+			nav.show();
+		}else if(w < 560 && nav.is(':visible')){
+			nav.hide();
+		}
 	});
 
-
-
+	$('.hamburger-menu').on('click', function(){
+			$('nav ul').toggle();
+		});
 
 });
+
+
+
+
+
+
+
