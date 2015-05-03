@@ -1,5 +1,7 @@
+
 /*my one page*/
-*{
+
+* {
 	box-sizing: border-box;
 }
 
@@ -27,6 +29,11 @@ nav ul{
 	margin: 0;
 	display: none;
 }
+
+nav ul.inactive{
+display:none;
+}
+
 nav ul li{
 		list-style-type: none;
 /*display: block;*/
@@ -35,7 +42,7 @@ nav ul li{
 	/*display: inline-block;*/
 }
 
-.mobile-on{
+.mobile-on {
 	display: inline-block;
 	float: right;
 
@@ -60,9 +67,20 @@ nav ul a{
 .fa-bars{
 	font-size:2em;
 }
+
+
+
+.page-home{
+	color: #eee;
+	background-color: black;
+	text-align: center;
+	height: 100vh;
+}
+
 .page-about{
-	/*background-color: #50b7c8;*/
 	clear: both;
+	height:400px;
+	height: 100vh;
 }
 
 .about-right{
@@ -70,38 +88,45 @@ nav ul a{
 	/*height: 300px;*/	
 /*	float:right;
 	width: 50%;*/
+	text-align: center;
 	background:#d5f2f7;
+	height: inherit;
 /*	position: relative;
 */}
-/*.about-right:after{
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  top: 50%;
-  left: -3.12em;
-  margin-top: -1.2em;
-  border-color: rgba(0,0,0,0);
-  border-right-color: #e5fcfe;
-  border-width: 1.2em 1.6em;
+div > p{
+	padding: 15%;
+	text-align: center;
 }
-*/
 
 
 .about-left{
 	width: 100%;
+	text-align: center;
+	height: inherit;
 	/*height: 300px;*/
 	/*float:left;
 	width: 50%;*/
 	background:#bdeef4;
 }
+.about-left p{
+	  padding: 15%;
+}
 
+.page-news{
+	background-color: pink;
+	height: 100vh;
+	
+}
+.page-products{
+	height: 100vh;
+}
 
 .page-contact{
 	clear: both;
 	background-color: #818181;
+	height: 100vh;
 }
+
 
 div{
 	overflow: auto;
